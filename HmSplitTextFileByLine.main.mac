@@ -1,5 +1,5 @@
 ﻿/*
- * HmSplitTextFileByLine v1.0.5.0
+ * HmSplitTextFileByLine v1.0.5.1
  *
  * Copyright (c) 2024 Akitsugu Komiyama
  * under the MIT License
@@ -49,6 +49,9 @@ try {
             let linesPerChunk = 5000;
             linesPerChunk = Number(answer);
             if (Number.isNaN(linesPerChunk)) {
+                throwCancelException();
+            }
+            if (linesPerChunk <= 0) {
                 throwCancelException();
             }
             return [linesPerChunk, needConfirm];
