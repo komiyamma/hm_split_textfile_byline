@@ -10,6 +10,13 @@
 
 ## 使い方
 
+### HmSplitTextFileByLine.ui.mac
+
 分割したいテキストファイルを秀丸で開く  
 HmSplitTextFileByLine.ui.mac を 実行する。  
 ⇒ 自動で 「ファイル名_001.txt」「ファイル名_002.txt」... といったように連番で分割される。  
+
+### HmSplitTextFileByLine.value.mac
+
+UIなしで直接値で指示する時はこれを編集して自分なりに利用してください。
+
