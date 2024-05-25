@@ -23,6 +23,7 @@ if (filename2 != "" && getarg(0) == "") {
 jsmode "WebView2";
 
 js {
+
 if (typeof (objHmSplitTextFileByLineUI) != "undefined") {
     objHmSplitTextFileByLineUI._destructor();
 }
@@ -58,7 +59,7 @@ class HmSplitTextFileByLineUI {
     static openRenderPane() {
         // カレントマクロフォルダのhtmlファイルを使う
         let absoluteUrl = new URL(HmSplitTextFileByLineUI.currentmacrodir + "\\" + "HmSplitTextFileByLine.ui.html");
-        let idCallback = hidemaru.getFunctionId(HmSplitTextFileByLineUI.onInputHtmlButtonClick_HmSplitTextFileByLine);
+        let idCallback = hidemaru.getFunctionId(HmSplitTextFileByLineUI.onHtmlButtonClick);
         let params = new URLSearchParams();
         params.set('strIDCallBack', String(idCallback));
         params.set('strAllLineCount', String(linecount2()));
@@ -76,7 +77,7 @@ class HmSplitTextFileByLineUI {
         let readyState = renderpanecommand({ target: HmSplitTextFileByLineUI.strTargetLabel, get: "readyState" });
         if (readyState == "complete") {
             hidemaru.clearInterval(HmSplitTextFileByLineUI.idIntervalInitialize);
-            HmSplitTextFileByLineUI.onRenderPaneShown_HmSplitTextFileByLine();
+            HmSplitTextFileByLineUI.onRenderPaneShown();
         }
     }
     static tickCheckCloseRenderPane() {
@@ -93,14 +94,14 @@ class HmSplitTextFileByLineUI {
     // レンダリングペインが完全に表示されたら、
     // このJS内にある「onInputHtmlButtonClick_HmSplitTextFileByLine」関数をレンダリングペインから呼び出せるように関数のIDを渡す。
     // また、「レンダリングペインを操作するのよ～」ということがわかりやすいように、レンダリングペイン側にフォーカスを移す
-    static onRenderPaneShown_HmSplitTextFileByLine() {
+    static onRenderPaneShown() {
         renderpanecommand({
             target: HmSplitTextFileByLineUI.strTargetLabel,
             focus: 1,
         });
     }
     // HTML側で「ボタン」を押すと、これが呼ばれる
-    static onInputHtmlButtonClick_HmSplitTextFileByLine(json_text) {
+    static onHtmlButtonClick(json_text) {
         HmSplitTextFileByLineUI.clearUpdateInterval();
         renderpanecommand({
             target: HmSplitTextFileByLineUI.strTargetLabel,
