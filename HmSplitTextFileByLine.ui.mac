@@ -76,7 +76,7 @@ class HmSplitTextFileByLineUI {
     static tickCheckComplete() {
         let readyState = renderpanecommand({ target: HmSplitTextFileByLineUI.strTargetLabel, get: "readyState" });
         if (readyState == "complete") {
-            hidemaru.clearInterval(HmSplitTextFileByLineUI.idIntervalInitialize);
+            HmSplitTextFileByLineUI.clearInitializeInterval();
             HmSplitTextFileByLineUI.onRenderPaneShown();
         }
     }
