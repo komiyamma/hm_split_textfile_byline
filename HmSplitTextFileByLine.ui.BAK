@@ -32,6 +32,7 @@
     let strAllLineCount = params.get('strAllLineCount');
     nAllLineCount = Number(strAllLineCount);
 
+
     let nDivFileCount = 1;
 
     window.onload = () => { input_1.focus(); }
