@@ -1,5 +1,5 @@
 ﻿/*
- * HmSplitTextFileByLine v1.0.5.4
+ * HmSplitTextFileByLine v1.0.5.5
  *
  * Copyright (c) 2024 Akitsugu Komiyama
  * under the MIT License
@@ -89,12 +89,11 @@ class HmSplitTextFileByLineMain {
     }
     // ファイルのフルパスから 「拡張子」と「それ以外」を得る。「拡張子」が無い場合にも対応する
     getFilePathInfo(filePath) {
-        // ファイル名のみを取得する
-        let fileName = filePath.split("\\").pop();
-        // ファイル名を "." で分割して拡張子とそれ以外に分ける
-        let dotIndex = fileName.lastIndexOf(".");
-        let name = dotIndex !== -1 ? fileName.substring(0, dotIndex) : fileName;
-        let ext = dotIndex !== -1 ? fileName.substring(dotIndex + 1) : "";
+        // '.' でファイル名を拡張子とそれ以外に分割して配列に格納
+        let parts = filePath.split('.');
+        // 拡張子とそれ以外を別々の変数に格納
+        let ext = parts.pop(); // 拡張子
+        let name = parts.join('.'); // 拡張子以外の部分
         return {
             name: name,
             ext: ext
