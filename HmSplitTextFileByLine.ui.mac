@@ -1,5 +1,5 @@
 ﻿/*
- * HmSplitTextFileByLine v1.0.5.9
+ * HmSplitTextFileByLine v1.0.6.1
  *
  * Copyright (c) 2024 Akitsugu Komiyama
  * under the MIT License
@@ -91,15 +91,22 @@ class HmSplitTextFileByLineUI {
     }
     // HTML側で「ボタン」を押すと、これが呼ばれる
     static onHtmlButtonClick(json_text) {
-        HmSplitTextFileByLineUI.clearUpdateInterval();
-        renderpanecommand({
-            target: HmSplitTextFileByLineUI.strTargetLabel,
-            show: 0,
-        });
-        // json_textの状態で、inputフィールドに入っているテキストが渡ってくるので、その数値を渡す
-        let json_obj = JSON.parse(json_text);
-        let linesPerChunk = json_obj.input_1;
-        hidemaru.postExecMacroFile(HmSplitTextFileByLineUI.currentmacrodir + "\\" + "HmSplitTextFileByLine.main.mac", linesPerChunk);
+        try {
+            HmSplitTextFileByLineUI.clearUpdateInterval();
+            renderpanecommand({
+                target: HmSplitTextFileByLineUI.strTargetLabel,
+                show: 0,
+            });
+            // json_textの状態で、inputフィールドに入っているテキストが渡ってくるので、その数値を渡す
+            let json_obj = JSON.parse(json_text);
+            let linesPerChunk = json_obj.input_1;
+            if (linesPerChunk == "") {
+                HmSplitTextFileByLineUI.throwCancelException();
+            }
+            hidemaru.postExecMacroFile(HmSplitTextFileByLineUI.currentmacrodir + "\\" + "HmSplitTextFileByLine.main.mac", linesPerChunk);
+        } catch(err) {
+            HmSplitTextFileByLineUI.outputAlert(err);
+        }
     }
     static idIntervalInitialize;
     static idIntervalUpdate;
