@@ -11,9 +11,7 @@ jsmode "WebView2\\HmSplitTextFileByLine";
 
 js {
 
-if (typeof (objHmSplitTextFileByLineUI) != "undefined") {
-    objHmSplitTextFileByLineUI._destructor();
-}
+objHmSplitTextFileByLineUI?._destructor();
 class HmSplitTextFileByLineUI {
     static currentmacrodir = currentmacrodirectory();
     // ラベルはこのマクロ独自にしておく
@@ -134,9 +132,7 @@ try {
 }
 catch (err) {
     HmSplitTextFileByLineUI.outputAlert(err);
-    if (typeof (objHmSplitTextFileByLineUI) != "undefined") {
-        objHmSplitTextFileByLineUI._destructor();
-    }
+    objHmSplitTextFileByLineUI?._destructor();
 }
 
 } // js
