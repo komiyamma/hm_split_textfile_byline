@@ -1,5 +1,5 @@
 ﻿/*
- * HmSplitTextFileByLine v1.0.6.2
+ * HmSplitTextFileByLine v1.0.6.3
  *
  * Copyright (c) 2024 Akitsugu Komiyama
  * under the MIT License
@@ -101,7 +101,12 @@ class HmSplitTextFileByLineUI {
             if (linesPerChunk == "") {
                 HmSplitTextFileByLineUI.throwCancelException();
             }
-            hidemaru.postExecMacroFile(HmSplitTextFileByLineUI.currentmacrodir + "\\" + "HmSplitTextFileByLine.main.mac", linesPerChunk);
+            let peRetry = hidemaru.setInterval(()=>{
+                if (hidemaru.isScheduled?.()) return;
+                let success = hidemaru.postExecMacroFile(HmSplitTextFileByLineUI.currentmacrodir + "\\" + "HmSplitTextFileByLine.main.mac", linesPerChunk);
+                if (success === 0) return; // 再挑戦
+                hidemaru.clearInterval(peRetry);
+            }, 100);
         } catch(err) {
             HmSplitTextFileByLineUI.outputAlert(err);
         }
