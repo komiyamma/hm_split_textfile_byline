@@ -103,8 +103,8 @@ class HmSplitTextFileByLineUI {
             }
             let peRetry = hidemaru.setInterval(()=>{
                 if (hidemaru.isScheduled?.()) return;
-                let success = hidemaru.postExecMacroFile(HmSplitTextFileByLineUI.currentmacrodir + "\\" + "HmSplitTextFileByLine.main.mac", linesPerChunk);
-                if (success === 0) return; // 再挑戦
+                let isScheduled = hidemaru.postExecMacroFile(HmSplitTextFileByLineUI.currentmacrodir + "\\" + "HmSplitTextFileByLine.main.mac", linesPerChunk);
+                if (isScheduled === 0) return; // 再挑戦
                 hidemaru.clearInterval(peRetry);
             }, 100);
         } catch(err) {
