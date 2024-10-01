@@ -1,5 +1,5 @@
 ﻿/*
- * HmSplitTextFileByLine v1.0.6.4
+ * HmSplitTextFileByLine v1.0.6.5
  *
  * Copyright (c) 2024 Akitsugu Komiyama
  * under the MIT License
@@ -9,7 +9,6 @@ hidemaruversion "9.25.99";
 
 jsmode "WebView2\\HmSplitTextFileByLine";
 js {
-
 class HmSplitTextFileByLineMain {
     constructor() {
         HmSplitTextFileByLineMain.throwIfNotFileName();
@@ -96,7 +95,7 @@ class HmSplitTextFileByLineMain {
         if (parts.length >= 2) {
             // 拡張子とそれ以外を別々の変数に格納
 	        let ext = parts.pop(); // 拡張子
-            let name = filePath.slice(0, filePath.length-ext.length);
+            let name = filePath.slice(0, filePath.length-ext.length-1);
             return {
                 name: name,
                 ext: ext
