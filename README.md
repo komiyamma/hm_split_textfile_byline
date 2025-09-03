@@ -2,25 +2,54 @@
 
 ![Hidemaru 9.25](https://img.shields.io/badge/Hidemaru-v9.25-6479ff.svg)
 
-秀丸で今開いているファイルを、指定の「行数」で分割する
+秀丸エディタで現在開いているテキストファイルを、指定した「行数」を基準に複数のファイルに分割するマクロです。
+
+## スクリーンショット
+
+![UI](https://秀丸マクロ.net/other_soft/hm_split_textfile_byline/2x/2x_cnt_hm_split_textfile_byline_01.png)
+
+## 主な機能
+
+*   ダイアログ(UI)による対話的な行数指定
+*   マクロ内での直接的な行数指定
+
+## 動作環境
+
+*   秀丸エディタ v9.25 以上
 
 ## インストール
 
-「HmSplitTextFileByLine.***」を一緒のフォルダに入れる
+1.  **[こちらから最新版をダウンロード](https://秀丸マクロ.net/other_soft/hm_split_textfile_byline/HmSplitTextFileByLine.zip)** してください。
+2.  ダウンロードしたzipファイルを解凍し、中にあるすべてのファイルを同じフォルダに配置してください。
 
 ## 使い方
 
-### HmSplitTextFileByLine.ui.mac
+**注意点:** 分割されたファイルは、現在開いているファイルと同じフォルダ内に「元のファイル名_連番.txt」という名前で作成されます。作業用のフォルダを用意して、その中で操作することをおすすめします。
 
-分割したいテキストファイルを秀丸で開く  
-HmSplitTextFileByLine.ui.mac を 実行する。  
-⇒ 自動で 「ファイル名_001.txt」「ファイル名_002.txt」... といったように連番で分割される。  
+### UIを使って行数を指定する場合
 
-### HmSplitTextFileByLine.value.mac
+1.  分割したいテキストファイルを秀丸エディタで開きます。
+2.  `HmSplitTextFileByLine.ui.mac` を実行します。
+3.  表示されたダイアログに、1ファイルあたりの行数を入力して「分割」ボタンを押します。
 
-UIなしで直接値で指示する時はこれを編集して自分なりに利用してください。
+### マクロを編集して直接数値を指定する場合
+
+`HmSplitTextFileByLine.value.mac` を直接編集することで、UIを表示せずにファイル分割を実行できます。
+
+ご自身の使い方に合わせて、マクロ内の数値を自由に変更してご利用ください。
+
+## ライセンス
+
+このマクロは MIT License の下で公開されています。
+(同梱の LICENSE ファイルをご確認ください)
+
+## 作者 / ソースコード
+
+*   **作者:** komiyamma
+*   **ソースコード:** [Github](https://github.com/komiyamma/hm_split_textfile_byline)
 
 ## 解説サイト
 
-https://秀丸マクロ.net/?page=nobu_tool_hm_split_textfile_byline
+より詳しい情報や更新履歴については、以下のサイトをご覧ください。
 
+https://秀丸マクロ.net/?page=nobu_tool_hm_split_textfile_byline
