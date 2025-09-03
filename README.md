@@ -4,10 +4,6 @@
 
 秀丸エディタで現在開いているテキストファイルを、指定した「行数」を基準に複数のファイルに分割するマクロです。
 
-## スクリーンショット
-
-![UI](https://秀丸マクロ.net/other_soft/hm_split_textfile_byline/2x/2x_cnt_hm_split_textfile_byline_01.png)
-
 ## 主な機能
 
 *   ダイアログ(UI)による対話的な行数指定
@@ -19,8 +15,9 @@
 
 ## インストール
 
-1.  **[こちらから最新版をダウンロード](https://秀丸マクロ.net/other_soft/hm_split_textfile_byline/HmSplitTextFileByLine.zip)** してください。
-2.  ダウンロードしたzipファイルを解凍し、中にあるすべてのファイルを同じフォルダに配置してください。
+1.  HmSplitTextFileByLine.zipをダウンロード。
+2.  ブロック解除。
+3.  ダウンロードしたzipファイルを解凍し、中にあるすべてのファイルを同じフォルダに配置してください。
 
 ## 使い方
 
